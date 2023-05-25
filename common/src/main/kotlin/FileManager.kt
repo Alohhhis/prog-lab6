@@ -1,5 +1,8 @@
 import exceptions.FileException
+import java.io.BufferedWriter
 import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
 import java.util.Scanner
 
 class FileManager {
@@ -26,7 +29,11 @@ class FileManager {
         }
     }
 
-    fun writeFile(path: String, text:String){
-
+    fun writeFile(path: String, text: String) {
+        FileOutputStream(path).use { fos ->
+            OutputStreamWriter(fos, Charsets.UTF_8).use { osw ->
+                BufferedWriter(osw).use { bf -> bf.write(text) }
+            }
+        }
     }
 }

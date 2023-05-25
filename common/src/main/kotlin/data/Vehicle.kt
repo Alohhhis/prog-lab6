@@ -2,8 +2,9 @@ package data
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
 import java.time.ZonedDateTime
-
+import java.util.Date
 /**
  * Класс, объекты которого мы храним в коллекции
  */
@@ -17,7 +18,7 @@ data class Vehicle(
     val fuelType: FuelType?,//Поле может быть null
     val id: Int = generateId(arrayOf(name,VehicleType.toString())),
     @Contextual
-    val creationTime: ZonedDateTime = ZonedDateTime.now()
+    val creationDate: LocalDate = LocalDate.now()
 ) : Comparable<Vehicle> {
 
 
