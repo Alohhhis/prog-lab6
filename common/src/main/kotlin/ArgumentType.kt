@@ -4,6 +4,6 @@
 enum class ArgumentType {
     INT,
     STRING,
-    FUELTYPE,
+    FUEL_TYPE,
     VEHICLE_TYPE
 }
