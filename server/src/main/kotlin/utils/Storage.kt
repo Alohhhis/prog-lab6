@@ -1,8 +1,13 @@
 package utils
+/**
+ * Interface for interacting with the collection
+ */
+interface Storage<T, K, V> {
+    fun getCollection(predicate: Map.Entry<K, V>.() -> Boolean): T
+    fun removeKey(id: K)
 
-interface Storage<T, V, K> {
-    fun clear()
     fun getInfo(): String
-    fun update(id: V, element: K)
-    fun getCollection(predicate: Map.Entry<V, K>.() -> Boolean): T
+    fun insert(id: K, element: V)
+    fun update(id: K, element: V)
+    fun clear()
 }

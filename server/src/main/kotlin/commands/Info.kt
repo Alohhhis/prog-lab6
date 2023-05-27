@@ -11,4 +11,7 @@ class Info : StorageCommand() {
     }
 
     override fun getArgumentType(): Array<ArgumentType> = arrayOf()
+    override fun undo(): CommandResult? {
+        return null
+    }
 }

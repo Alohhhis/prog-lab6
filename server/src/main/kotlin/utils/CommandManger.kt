@@ -1,10 +1,7 @@
 package utils
 
 import Command
-import commands.Clear
-import commands.Help
-import commands.Info
-import commands.Show
+import commands.*
 import exceptions.CommandException
 import org.koin.core.component.KoinComponent
 
@@ -18,8 +15,8 @@ class CommandManager: KoinComponent {
         "show" to Show(),
         "update" to Update(),
         "clear" to Clear(),
-        "update" to Update(),
         "remove_greater" to RemoveGreater(),
+        "remove_head" to RemoveHead(),
         "clear" to Clear(),
     )
     /**

@@ -21,4 +21,5 @@ class Help : Command() {
     }
 
     override fun getArgumentType(): Array<ArgumentType> = arrayOf()
+
 }
