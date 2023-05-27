@@ -1,5 +1,8 @@
 plugins {
-    id("java")
+    kotlin("jvm") version "1.7.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.20-Beta"
+    id("org.jetbrains.dokka") version "1.7.20"
+    application
 }
 
 group = "org.example"

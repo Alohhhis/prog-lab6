@@ -28,7 +28,7 @@ class CommandManager {
     /**
      * List of all commands. Updates with update_commands
      */
-    val commands = clientCommands.mapValues { e -> e.value.getArgumentTypes() }.toMutableMap()
+    val commands = clientCommands.mapValues { e -> e.value.getArgumentType() }.toMutableMap()
 
     /**
      * Send request to the server to get list of server commands
@@ -43,7 +43,7 @@ class CommandManager {
         if (respond.type != FrameType.LIST_OF_COMMANDS_RESPONSE) return false
         val serverCommands = respond.body["commands"] as? Map<String, Array<ArgumentType>> ?: return false
         commands.clear()
-        commands.putAll(clientCommands.mapValues { e -> e.value.getArgumentTypes() })
+        commands.putAll(clientCommands.mapValues { e -> e.value.getArgumentType() })
         commands.putAll(serverCommands)
         return true
     }

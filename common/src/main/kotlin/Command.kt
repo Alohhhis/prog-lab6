@@ -1,23 +1,25 @@
 import org.koin.core.component.KoinComponent
 
+
 /**
- * Абстрактный класс, определяющий команды.
+ * An abstract class for defining commands.
  */
-abstract class Command : KoinComponent{
+abstract class Command : KoinComponent {
+
     /**
-     * Запускает выполнение команды
+     * Starts the execution of the command
      *
-     * @return [CommandResult] с именем команды и данными или исключением, возвращаемыми командой
+     * @return [CommandResult] with the name of the command and data or exception returned by the command
      */
     abstract fun execute(args: Array<Any>): CommandResult
 
     /**
-     * @возвращает описание команды.
+     * @return a description of the command.
      */
     abstract fun getDescription(): String
 
     /**
-     * @возвращает массив допустимых значений [ArgumentType] для команды
+     * @return array of [ArgumentType] for the command
      */
     abstract fun getArgumentType(): Array<ArgumentType>
 }

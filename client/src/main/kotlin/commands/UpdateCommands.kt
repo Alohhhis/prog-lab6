@@ -12,7 +12,6 @@ import utils.CommandManager
 class UpdateCommands : ClientCommand() {
     private val commandManager: CommandManager by inject()
     override fun getDescription(): String = "update_commands : запросить у сервера список доступных команд"
-    override fun getArgumentTypes(): Array<ArgumentType> = arrayOf()
 
     override fun execute(args: Array<Any>): CommandResult {
         if (commandManager.updateCommands(interactor.getClient())) {
@@ -21,5 +20,5 @@ class UpdateCommands : ClientCommand() {
         return CommandResult.Failure("Update_commands", CommandException("Сервер вернул непотребщину"))
     }
 
-
+    override fun getArgumentType(): Array<ArgumentType> = arrayOf()
 }

@@ -4,7 +4,7 @@ import ArgumentType
 import CommandResult
 
 /**
- * The command that clears the collection.
+ * Команда, которая очищает коллекцию
  */
 class Clear : StorageCommand() {
     override fun getDescription(): String = "clear : очистить коллекцию"
@@ -15,5 +15,5 @@ class Clear : StorageCommand() {
         return CommandResult.Success("Clear")
     }
 
-    override fun getArgumentTypes(): Array<ArgumentType> = arrayOf()
+    override fun getArgumentType(): Array<ArgumentType> = arrayOf()
 }
