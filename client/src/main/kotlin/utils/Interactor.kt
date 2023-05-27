@@ -21,6 +21,13 @@ interface Interactor {
     fun getArgs()
 
     /**
+     * Выполняет командный файл, расположенный по адресу [path] в операционной системе
+     *
+     * @param path - расположение файла в операционной системе
+     */
+    fun executeCommandFile(path: String)
+
+    /**
      * Выполняет команду
      *
      * @param
