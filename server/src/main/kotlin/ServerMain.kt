@@ -15,11 +15,11 @@ import java.nio.channels.SocketChannel
 
 /**
 
-The ServerApp class represents the server application that listens to incoming client requests,executes them and sends back the response.
+Класс ServerApp представляет серверное приложение, которое прослушивает входящие клиентские запросы, выполняет их и отправляет ответ.
 
-@property [running] A boolean value indicating whether the server is running or not.
-@property [selector] The Selector instance used for selecting incoming channels and operations.
-@property [serverChannel] The ServerSocketChannel instance used to listen for incoming requests.
+@property [running] Логическое значение, указывающее, работает сервер или нет.
+@property [selector] Экземпляр Selector, используемый для выбора входящих каналов и операций.
+@property [serverChannel] Экземпляр ServerSocketChannel, используемый для прослушивания входящих запросов.
  */
 class ServerMain(
     private val port: Int,

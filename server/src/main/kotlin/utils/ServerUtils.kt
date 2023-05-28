@@ -6,7 +6,6 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import kotlin.concurrent.thread
 
-
 class Timer(val milli: Long) {
     fun onTimerOn(actions: () -> Unit) {
         thread {
