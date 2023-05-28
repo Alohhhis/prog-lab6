@@ -1,0 +1,13 @@
+import org.koin.dsl.module
+import serialize.FrameSerializer
+import serialize.Serializer
+import utils.ReaderWriter
+import utils.ValidationManager
+import utils.Validator
+import utils.console.ConsoleManager
+
+val clientModule = module {
+    factory <ReaderWriter>{ ConsoleManager() }
+    factory <Serializer<Frame>>{ FrameSerializer() }
+    factory <Validator> { ValidationManager(interactor = get(), userManager = get())}
+}

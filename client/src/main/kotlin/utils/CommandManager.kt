@@ -1,7 +1,7 @@
 package utils
 
 import ArgumentType
-import ClientApp
+import ClientMain
 import CommandResult
 import Frame
 import FrameType
@@ -26,17 +26,17 @@ class CommandManager {
     )
 
     /**
-     * List of all commands. Updates with update_commands
+     * Список всех команд. Обновления с помощью update_commands
      */
     val commands = clientCommands.mapValues { e -> e.value.getArgumentType() }.toMutableMap()
 
     /**
-     * Send request to the server to get list of server commands
+     * Отправляет запрос на сервер, чтобы получить список серверных команд
      *
-     * @param clientApp the current client connected to the server
-     * @return true if the request was successful
+     * @param clientApp текущий клиент, подключенный к серверу
+     * @return true, если запрос был успешным
      */
-    fun updateCommands(clientApp: ClientApp): Boolean {
+    fun updateCommands(clientApp: ClientMain): Boolean {
         val frame = Frame(FrameType.LIST_OF_COMMANDS_REQUEST)
         clientApp.sendFrame(frame)
         val respond = clientApp.receiveFrame()
@@ -49,20 +49,20 @@ class CommandManager {
     }
 
     /**
-     * Checks if the command is from client part
+     * Проверяет, исходит ли команда от клиентской части
      *
-     * @param command checked command
-     * @return true if command is from client part
+     * @param command проверена командой
+     * @return true, если команда из клиентской части
      */
     private fun isClientCommand(command: String): Boolean = command in clientCommands
 
     /**
-     * Execute commands by sending frame to the server
+     * Выполнять команды, отправляя фрейм на сервер
      *
-     * @param clientApp the current client connected to the server
-     * @return [CommandResult] of the command
+     * @param clientApp текущий клиент, подключенный к серверу
+     * @return [CommandResult] команды
      */
-    fun executeCommand(clientApp: ClientApp, command: String, args: Array<Any>): CommandResult? {
+    fun executeCommand(clientApp: ClientMain, command: String, args: Array<Any>): CommandResult? {
         if (isClientCommand(command)) {
             return clientCommands[command]!!.execute(args)
         }
@@ -75,10 +75,10 @@ class CommandManager {
     }
 
     /**
-     * Get the arguments needed for command
+     * Получить аргументы, необходимые для команды
      *
-     * @param command the checked command
-     * @return array of [ArgumentType]
+     * @param command проверенная команда
+     * @return массив [ArgumentType]
      */
     fun getArgs(command: String): Array<ArgumentType> {
         if (command !in commands) {

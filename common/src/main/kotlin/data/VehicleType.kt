@@ -12,4 +12,15 @@ enum class VehicleType {
     SHIP,
     BICYCLE,
     HOVERBOARD;
+    companion object {
+        /**
+         * Decorates the [valueOf] by comparing with [values]
+         *
+         * @param name take the string that should be converted to [MusicGenre]
+         * @return [MusicGenre] or null if string can't be converted
+         */
+        fun valueOfOrNull(name: String): VehicleType? {
+            return values().firstOrNull { it.name == name }
+        }
+    }
 }

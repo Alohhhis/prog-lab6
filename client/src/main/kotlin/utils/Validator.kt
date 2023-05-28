@@ -1,6 +1,7 @@
 package utils
 
 import data.FuelType
+import data.Vehicle
 import data.VehicleType
 
 interface Validator {
@@ -16,11 +17,11 @@ interface Validator {
     /**
      * Принимает [FuelType] значение
      */
-    fun getFuelType(): FuelType
+    fun getVehicleType(): VehicleType
     /**
      * Принимает [VehicleType] значение
      */
-    fun getVehicleType(): VehicleType
+    fun getVehicle(): Vehicle
 }
 /*
 INT,

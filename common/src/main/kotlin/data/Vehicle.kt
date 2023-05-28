@@ -3,8 +3,7 @@ package data
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
-import java.time.ZonedDateTime
-import java.util.Date
+
 /**
  * Класс, объекты которого мы храним в коллекции
  */
@@ -13,8 +12,8 @@ data class Vehicle(
     val name: String, //Поле не может быть null, Строка не может быть пустой
     val coordinates: Coordinates,//Поле не может быть null
     val enginePower: Int,//Значение поля должно быть больше 0
-    val distanceTravelled: Double,//Значение поля должно быть больше 0
-    val type: VehicleType?,//Поле может быть null
+    val distanceTravelled: Long?,//Значение поля должно быть больше 0
+    val vehicleType: VehicleType?,//Поле может быть null
     val fuelType: FuelType?,//Поле может быть null
     val id: Int = generateId(arrayOf(name,VehicleType.toString())),
     @Contextual

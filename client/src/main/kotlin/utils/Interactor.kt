@@ -1,5 +1,6 @@
 package utils
 
+import ArgumentType
 import ClientMain
 
 interface Interactor {
@@ -18,7 +19,7 @@ interface Interactor {
      *
      * @param
      */
-    fun getArgs()
+    fun getArgs(argTypes: Array<ArgumentType>): Array<Any>
 
     /**
      * Выполняет командный файл, расположенный по адресу [path] в операционной системе

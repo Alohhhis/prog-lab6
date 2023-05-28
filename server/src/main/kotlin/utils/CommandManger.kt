@@ -18,6 +18,8 @@ class CommandManager: KoinComponent {
         "remove_greater" to RemoveGreater(),
         "remove_head" to RemoveHead(),
         "clear" to Clear(),
+        "remove_by_id" to RemoveByKey(),
+        "isert" to Insert()
     )
     /**
      * Проверка, существует ли такая команда
