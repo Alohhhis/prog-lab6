@@ -8,7 +8,7 @@ Main function that starts the server application and listens to commands from th
 The application can be stopped using the 'exit' command, and the collection can be saved or loaded.
  */
 fun main(args: Array<String>) {
-    var serverPort = 2232
+    var serverPort = 2222
     if (args.isNotEmpty()){
         serverPort = args[0].toIntOrNull() ?: serverPort
     }
@@ -18,18 +18,13 @@ fun main(args: Array<String>) {
     val server = server {
         port = serverPort
         onConnect { key, selector -> run {
-            println("Клиент!!!!!!")
+            println("Коннект имеется")
             server.acceptConnection(key, selector)
         } }
         onDisconnect { key, channel ->
             run {
                 key.cancel()
                 channel.close()
-            }
-        }
-        timerAction(3000) {
-            onTimerOn {
-                println("sas")
             }
         }
     }

@@ -5,11 +5,9 @@ import ClientMain
 import CommandResult
 import Frame
 import FrameType
-import commands.ExecuteScript
-import commands.Exit
-import commands.Help
-import commands.UpdateCommands
+import commands.*
 import exceptions.CommandException
+
 
 /**
  * Класс используется для ссылки на команды
@@ -23,7 +21,8 @@ class CommandManager {
         "execute_script" to ExecuteScript(),
         "exit" to Exit(),
         "update_commands" to UpdateCommands(),
-    )
+
+        )
 
     /**
      * Список всех команд. Обновления с помощью update_commands

@@ -76,7 +76,7 @@ class FileInteractor(
                     ArgumentType.INT -> getInt()
                     ArgumentType.STRING -> getString()
                     ArgumentType.VEHICLE_TYPE -> getVehicleType()
-                    ArgumentType.FUEL_TYPE -> getVehicle()
+                    ArgumentType.FUEL_TYPE -> getFuelType()
                 }
             )
         }
@@ -85,7 +85,11 @@ class FileInteractor(
 
     override fun getString(): String = lastArgument ?: throw CommandFileException("Нет аргумента")
     override fun getInt(): Int = lastArgument?.toIntOrNull() ?: throw CommandFileException("Не Int")
-    override fun getVehicleType(): VehicleType= lastArgument?.let { VehicleType.valueOfOrNull(it) } ?: throw CommandFileException("Не тип топлива")
+    override fun getFuelType(): FuelType =
+        lastArgument?.let { FuelType.valueOfOrNull(it) } ?: throw CommandFileException("Не тип топлива")
+
+    override fun getVehicleType(): VehicleType =
+        lastArgument?.let { VehicleType.valueOfOrNull(it) } ?: throw CommandFileException("Не тип транспорта")
 
     override fun getVehicle(): Vehicle {
         val name = next()

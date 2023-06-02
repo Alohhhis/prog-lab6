@@ -44,4 +44,6 @@ tasks.jar {
     }
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
-
+application {
+    mainClass.set("ServerKt")
+}

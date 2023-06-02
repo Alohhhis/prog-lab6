@@ -35,7 +35,8 @@ class InteractionManager(
     override fun start(clientApp: ClientMain) {
         this.isActive = true
         this.clientApp = clientApp
-        userManager.writeLine("Здрасьте, для вывода списка команд введите help")
+        userManager.writeLine("Кто прочитат, тот холл\n" +
+                "Для вывода списка команд введите help")
         //executeCommand("update_commands")
         while (isActive) {
             userManager.write(invitation)

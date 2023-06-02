@@ -1,6 +1,9 @@
+import kotlinx.serialization.Serializable
+
 /**
  * Перечисление представляет возможные аргументы команд
  */
+@Serializable
 enum class ArgumentType {
     INT,
     STRING,

@@ -17,15 +17,18 @@ interface Validator {
     /**
      * Принимает [FuelType] значение
      */
-    fun getVehicleType(): VehicleType
+    fun getFuelType(): FuelType
+
     /**
      * Принимает [VehicleType] значение
      */
+    fun getVehicleType(): VehicleType
+
     fun getVehicle(): Vehicle
 }
 /*
 INT,
 STRING,
-FUELTYPE,
+FUEL_TYPE,
 VEHICLE_TYPE
  */

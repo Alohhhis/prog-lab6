@@ -16,6 +16,17 @@ class ValidationManager(
         return res
     }
 
+    override fun getFuelType(): FuelType {
+        var res: FuelType? = null
+        while (res == null) {
+            userManager.write("Вы должны ввести тип топлива (ELECTRICITY,\n" +
+                    "    NUCLEAR,\n" +
+                    "    PLASMA): ")
+            res = FuelType.valueOfOrNull(userManager.readLine().uppercase())
+        }
+        return res
+    }
+
     override fun getString(): String {
         userManager.write("Вы должны ввести аргумент типа строка: ")
         return userManager.readLine()
@@ -35,7 +46,7 @@ class ValidationManager(
     }
 
     override fun getVehicle(): Vehicle {
-        val name = userManager.getValidatedValue("Введите название банды: ") {
+        val name = userManager.getValidatedValue("Введите название транспорта: ") {
             it.isNotEmpty()
         }
         val coordX = userManager.getValidatedValue("Введите координату X: ") {
@@ -57,7 +68,7 @@ class ValidationManager(
                 FuelType.valueOfOrNull(it.uppercase()) != null
             }
         val vehicleType =
-            userManager.getValidatedValue("Введите тип транспрта (CAR,\n" +
+            userManager.getValidatedValue("Введите тип транспорта (CAR,\n" +
                     "    SUBMARINE,\n" +
                     "    SHIP,\n" +
                     "    BICYCLE,\n" +

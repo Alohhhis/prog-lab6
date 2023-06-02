@@ -29,5 +29,5 @@ class Insert : StorageCommand() {
         return CommandResult.Success("Undo Insert")
     }
 
-    override fun getArgumentType(): Array<ArgumentType> = arrayOf(ArgumentType.INT, ArgumentType.VEHICLE_TYPE)
+    override fun getArgumentType(): Array<ArgumentType> = arrayOf(ArgumentType.INT, ArgumentType.FUEL_TYPE,  ArgumentType.VEHICLE_TYPE)
 }
