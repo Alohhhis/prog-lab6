@@ -78,4 +78,66 @@ class ClientMain(private val serverAddress: String, private val serverPort: Int)
         return frame
     }
 }
+//TODO ----------------------------------------------------
+/**
+ * Допполнительное задание на реализацию DSL
+ * формирование меню ресторана.
+ */
+data class Dish(val name: String, val kkl: Int)
 
+class BuisnessLunchMenu {
+    val dishes = mutableListOf<Dish>()
+
+    fun addFirst(block: MenuBuilder.() -> Unit) {
+        val builder = MenuBuilder()
+        builder.block()
+        dishes.add(builder.build())
+    }
+
+    fun addSecond(block: MenuBuilder.() -> Unit) {
+        val builder = MenuBuilder()
+        builder.block()
+        dishes.add(builder.build())
+    }
+
+    fun addDrink(drinkName: String) {
+        dishes.add(Dish(drinkName, 100))
+    }
+
+    fun printMenu() {
+        println("На обед сёдня:")
+        for (dish in dishes) {
+            println("${dish.name} - ${dish.kkl} ккал")
+        }
+    }
+}
+
+fun businessLunchMenu(block: BuisnessLunchMenu.() -> Unit): BuisnessLunchMenu {
+    val menu = BuisnessLunchMenu()
+    menu.block()
+    return menu
+}
+
+class MenuBuilder {
+    var name: String = ""
+    var kkl: Int = 0
+
+    fun build(): Dish {
+        return Dish(name, kkl)
+    }
+}
+
+fun main() {
+    val menu = businessLunchMenu {
+        addFirst {
+            name = "    Оливьешка с малосольным огурцом (вкусно)"
+            kkl = 240
+        }
+        addSecond {
+            name = "    Гаспаччо (ОЧЕНЬ ВКУСНО)"
+            kkl = 300
+        }
+        addDrink("      Сок J7 - Яблоко, 0.3")
+    }
+    menu.printMenu()
+}
